@@ -33,7 +33,7 @@ function handlerError(response) {
     response.writeHead(500, DEFAULT_HEADER)
     response.write(
       JSON.stringify({
-        error: 'internal server error',
+        error: 'Internal server error',
       }),
     )
 
