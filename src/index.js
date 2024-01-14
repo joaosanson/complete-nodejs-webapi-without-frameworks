@@ -1,11 +1,10 @@
 import http from 'node:http'
+import handler from './handler.js'
 
 const PORT = process.env.PORT || 3333
 
 const server = http
-  .createServer((request, response) => {
-    response.end('Hello World')
-  })
+  .createServer(handler)
   .listen(PORT, () => console.log(`Server is running at ${PORT}`))
 
 export { server }
