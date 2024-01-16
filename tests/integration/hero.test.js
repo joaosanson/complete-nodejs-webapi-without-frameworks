@@ -7,17 +7,17 @@ test('Hero Integration Test Suite', async (t) => {
 
   // that's a bad practice because it mutates the environment
   process.env.PORT = testPort
-
   const { server } = await import('../../src/index.js')
-
   const testServerAddress = `http://localhost:${testPort}/heroes`
-  await t.testPort('it should create a hero', async (t) => {
+
+  await t.test('it should create a hero', async (t) => {
     const data = {
       name: 'Batman',
       age: 50,
       power: 'rich',
     }
-    const request = fetch(testServerAddress, {
+
+    const request = await fetch(testServerAddress, {
       method: 'POST',
       body: JSON.stringify(data),
     })
